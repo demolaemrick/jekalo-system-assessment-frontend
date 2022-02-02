@@ -4,23 +4,28 @@ import { IUser } from "../types";
 
 interface IUserContext {
   users: IUser[];
+  isLoading: boolean;
   addUser: (user: IUser) => void;
   removeUser: (username: string) => void;
 }
 
 export const UserContext = createContext<IUserContext>({
   users: [],
+  isLoading: false,
   addUser: (user) => {},
   removeUser: (username) => {},
 });
 
 const UserProvider: FC = ({ children }) => {
   const [users, setUsers] = useState<IUser[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchUsers = async () => {
+      setIsLoading(true);
       const response = await axios.get("/users");
       setUsers(response.data);
+      setIsLoading(false);
     };
     fetchUsers();
   }, []);
@@ -36,6 +41,7 @@ const UserProvider: FC = ({ children }) => {
 
   const values = {
     users,
+    isLoading,
     addUser: addUserHandler,
     removeUser: removeUserHandler,
   };
