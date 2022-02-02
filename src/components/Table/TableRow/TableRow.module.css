@@ -1,0 +1,28 @@
+.TableRow {
+  display: flex;
+  flex-direction: row;
+  padding: 15px 15px 16px 27px;
+  border-bottom: 0.5px solid #e7e7e7;
+  font-size: 14px;
+  justify-content: space-between;
+}
+
+.InnerFlex {
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  margin: 6px;
+}
+
+.InnerFlex:first-of-type > div:not(:first-child) {
+  width: 150px;
+  margin-left: 20px;
+}
+.InnerFlex:first-of-type > div:nth-child(3) {
+  margin-left: -30px;
+}
+
+.InnerFlex:last-child > div:not(:last-child) {
+  width: 100px;
+}

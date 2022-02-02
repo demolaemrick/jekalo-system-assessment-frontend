@@ -1,0 +1,8 @@
+.Header {
+  background: rgba(17, 70, 143, 0.04);
+  border-radius: 6px;
+  width: 100%;
+  font-size: 14px;
+  padding: 13px 16px;
+  color: #000000;
+}
